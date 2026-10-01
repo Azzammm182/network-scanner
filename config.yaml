@@ -1,0 +1,29 @@
+# ============================================================
+# Konfigurasi NetGuard
+# Semua nilai di bawah boleh diubah sesuai kebutuhan.
+# ============================================================
+
+monitor:
+  interval: 10            # detik antar pemindaian saat mode `watch`
+  ping_timeout_ms: 500    # timeout ping (ms) saat sweeping satu subnet
+  ping_workers: 64        # jumlah thread ping paralel
+
+scan:
+  ping_sweep: true        # ping seluruh host dulu agar tabel ARP terisi
+  vendor_lookup: true     # cari vendor kartu jaringan dari MAC
+  resolve_hostname: true  # coba resolve hostname tiap perangkat
+
+alerts:
+  new_device: true        # peringatan bila ada perangkat asing/baru
+  gateway_mac_change: true# peringatan ARP spoofing (MAC gateway berubah)
+  duplicate_mac: true     # 1 MAC muncul di beberapa IP
+  duplicate_ip: true      # 2 MAC mengklaim IP yang sama
+  ip_reassigned: true     # info bila IP berpindah perangkat (DHCP)
+
+packet:
+  syn_port_threshold: 25  # jumlah port berbeda => dianggap port scan
+  arp_flood_threshold: 20 # balasan ARP per 10 detik => ARP flood
+  deauth_threshold: 5     # frame deauth per 5 detik => deauth attack
+
+paths:
+  data_dir: data          # folder database, log, & cache (relatif thd project)

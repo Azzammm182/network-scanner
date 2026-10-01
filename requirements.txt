@@ -1,0 +1,9 @@
+# NetGuard dependencies
+# Wajib:
+psutil>=5.9.0        # info interface / subnet
+rich>=13.0.0         # tabel & warna di terminal
+PyYAML>=6.0          # baca config.yaml
+manuf>=1.1.5         # database vendor MAC (offline)
+
+# Opsional (untuk inspeksi paket / deteksi port scan & deauth):
+scapy>=2.5.0         # Windows: WAJIB install Npcap dari https://npcap.com
